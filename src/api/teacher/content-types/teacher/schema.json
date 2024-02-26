@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "teachers",
+  "info": {
+    "singularName": "teacher",
+    "pluralName": "teachers",
+    "displayName": "Teacher",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name_teacher": {
+      "type": "string"
+    },
+    "last_name_teacher": {
+      "type": "string"
+    },
+    "ID_T": {
+      "type": "biginteger"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "rooms",
+  "info": {
+    "singularName": "room",
+    "pluralName": "rooms",
+    "displayName": "Room",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nb_room": {
+      "type": "string"
+    },
+    "Avaliable": {
+      "type": "boolean"
+    }
+  }
+}

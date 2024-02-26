@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "learn_rooms",
+  "info": {
+    "singularName": "learn-room",
+    "pluralName": "learn-rooms",
+    "displayName": "LearnRoom"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nb_Rm": {
+      "type": "string"
+    },
+    "Avaliable": {
+      "type": "boolean"
+    }
+  }
+}
