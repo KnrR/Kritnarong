@@ -4,7 +4,8 @@
   "info": {
     "singularName": "student",
     "pluralName": "students",
-    "displayName": "Student"
+    "displayName": "Student",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,15 @@
     },
     "IDStd": {
       "type": "biginteger"
+    },
+    "Level": {
+      "type": "enumeration",
+      "enum": [
+        "Pre-primary",
+        "Primary",
+        "Lower secondary",
+        "Higher secondary education"
+      ]
     }
   }
 }

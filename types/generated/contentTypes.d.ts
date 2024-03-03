@@ -781,6 +781,41 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiClassRoomClassRoom extends Schema.SingleType {
+  collectionName: 'class_rooms';
+  info: {
+    singularName: 'class-room';
+    pluralName: 'class-rooms';
+    displayName: 'ClassRoom';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ID_ClassRoom: Attribute.String;
+    nb_room: Attribute.String;
+    IDStd: Attribute.Integer;
+    ID_Sub: Attribute.Integer;
+    ID_T: Attribute.BigInteger;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::class-room.class-room',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::class-room.class-room',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLearnRoomLearnRoom extends Schema.CollectionType {
   collectionName: 'learn_rooms';
   info: {
@@ -869,6 +904,7 @@ export interface ApiStudentStudent extends Schema.SingleType {
     singularName: 'student';
     pluralName: 'students';
     displayName: 'Student';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -877,6 +913,14 @@ export interface ApiStudentStudent extends Schema.SingleType {
     first_name_Std: Attribute.String;
     last_name_Std: Attribute.String;
     IDStd: Attribute.BigInteger;
+    Level: Attribute.Enumeration<
+      [
+        'Pre-primary',
+        'Primary',
+        'Lower secondary',
+        'Higher secondary education'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -978,6 +1022,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::class-room.class-room': ApiClassRoomClassRoom;
       'api::learn-room.learn-room': ApiLearnRoomLearnRoom;
       'api::room.room': ApiRoomRoom;
       'api::std.std': ApiStdStd;

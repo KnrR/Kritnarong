@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "class_rooms",
+  "info": {
+    "singularName": "class-room",
+    "pluralName": "class-rooms",
+    "displayName": "ClassRoom",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ID_ClassRoom": {
+      "type": "string"
+    },
+    "nb_room": {
+      "type": "string"
+    },
+    "IDStd": {
+      "type": "integer"
+    },
+    "ID_Sub": {
+      "type": "integer"
+    },
+    "ID_T": {
+      "type": "biginteger"
+    }
+  }
+}
