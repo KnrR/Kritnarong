@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * class-room router
+ * classroom router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::class-room.class-room');
+module.exports = createCoreRouter('api::classroom.classroom');

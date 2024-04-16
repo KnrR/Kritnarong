@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
-  "collectionName": "class_rooms",
+  "kind": "collectionType",
+  "collectionName": "classrooms",
   "info": {
-    "singularName": "class-room",
-    "pluralName": "class-rooms",
-    "displayName": "ClassRoom",
+    "singularName": "classroom",
+    "pluralName": "classrooms",
+    "displayName": "Classroom",
     "description": ""
   },
   "options": {
@@ -12,20 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "ID_ClassRoom": {
+    "id_Classroom": {
       "type": "string"
     },
     "nb_room": {
       "type": "string"
     },
-    "IDStd": {
+    "id_std": {
       "type": "integer"
     },
-    "ID_Sub": {
+    "id_sub": {
       "type": "integer"
     },
-    "ID_T": {
-      "type": "biginteger"
+    "id_t": {
+      "type": "integer"
     }
   }
 }

@@ -18,10 +18,10 @@
     "last_name_std": {
       "type": "string"
     },
-    "ID_std": {
+    "id_std": {
       "type": "biginteger"
     },
-    "Email_std": {
+    "email_std": {
       "type": "email"
     },
     "pass_email_std": {

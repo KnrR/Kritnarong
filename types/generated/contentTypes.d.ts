@@ -781,34 +781,34 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiClassRoomClassRoom extends Schema.SingleType {
-  collectionName: 'class_rooms';
+export interface ApiClassroomClassroom extends Schema.CollectionType {
+  collectionName: 'classrooms';
   info: {
-    singularName: 'class-room';
-    pluralName: 'class-rooms';
-    displayName: 'ClassRoom';
+    singularName: 'classroom';
+    pluralName: 'classrooms';
+    displayName: 'Classroom';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    ID_ClassRoom: Attribute.String;
+    id_Classroom: Attribute.String;
     nb_room: Attribute.String;
-    IDStd: Attribute.Integer;
-    ID_Sub: Attribute.Integer;
-    ID_T: Attribute.BigInteger;
+    id_std: Attribute.Integer;
+    id_sub: Attribute.Integer;
+    id_t: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::class-room.class-room',
+      'api::classroom.classroom',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::class-room.class-room',
+      'api::classroom.classroom',
       'oneToOne',
       'admin::user'
     > &
@@ -822,13 +822,14 @@ export interface ApiLearnRoomLearnRoom extends Schema.CollectionType {
     singularName: 'learn-room';
     pluralName: 'learn-rooms';
     displayName: 'LearnRoom';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Nb_Rm: Attribute.String;
-    Avaliable: Attribute.Boolean;
+    nb_room: Attribute.String;
+    avaliable: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -843,30 +844,6 @@ export interface ApiLearnRoomLearnRoom extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiRoomRoom extends Schema.SingleType {
-  collectionName: 'rooms';
-  info: {
-    singularName: 'room';
-    pluralName: 'rooms';
-    displayName: 'Room';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nb_room: Attribute.String;
-    Avaliable: Attribute.Boolean;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::room.room', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::room.room', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -885,8 +862,8 @@ export interface ApiStdStd extends Schema.CollectionType {
   attributes: {
     first_name_std: Attribute.String;
     last_name_std: Attribute.String;
-    ID_std: Attribute.BigInteger;
-    Email_std: Attribute.Email;
+    id_std: Attribute.BigInteger;
+    email_std: Attribute.Email;
     pass_email_std: Attribute.Password;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -898,61 +875,19 @@ export interface ApiStdStd extends Schema.CollectionType {
   };
 }
 
-export interface ApiStudentStudent extends Schema.SingleType {
-  collectionName: 'students';
-  info: {
-    singularName: 'student';
-    pluralName: 'students';
-    displayName: 'Student';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    first_name_Std: Attribute.String;
-    last_name_Std: Attribute.String;
-    IDStd: Attribute.BigInteger;
-    Level: Attribute.Enumeration<
-      [
-        'Pre-primary',
-        'Primary',
-        'Lower secondary',
-        'Higher secondary education'
-      ]
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::student.student',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::student.student',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSubjectSubject extends Schema.SingleType {
+export interface ApiSubjectSubject extends Schema.CollectionType {
   collectionName: 'subjects';
   info: {
     singularName: 'subject';
     pluralName: 'subjects';
     displayName: 'Subject';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    ID_Sub: Attribute.Integer;
-    Name_sub: Attribute.String;
+    id_sub: Attribute.Integer;
+    name_sub: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -971,13 +906,12 @@ export interface ApiSubjectSubject extends Schema.SingleType {
   };
 }
 
-export interface ApiTeacherTeacher extends Schema.SingleType {
+export interface ApiTeacherTeacher extends Schema.CollectionType {
   collectionName: 'teachers';
   info: {
     singularName: 'teacher';
     pluralName: 'teachers';
     displayName: 'Teacher';
-    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -985,7 +919,7 @@ export interface ApiTeacherTeacher extends Schema.SingleType {
   attributes: {
     first_name_teacher: Attribute.String;
     last_name_teacher: Attribute.String;
-    ID_T: Attribute.BigInteger;
+    id_t: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1022,11 +956,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::class-room.class-room': ApiClassRoomClassRoom;
+      'api::classroom.classroom': ApiClassroomClassroom;
       'api::learn-room.learn-room': ApiLearnRoomLearnRoom;
-      'api::room.room': ApiRoomRoom;
       'api::std.std': ApiStdStd;
-      'api::student.student': ApiStudentStudent;
       'api::subject.subject': ApiSubjectSubject;
       'api::teacher.teacher': ApiTeacherTeacher;
     }
